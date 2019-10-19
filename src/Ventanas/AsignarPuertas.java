@@ -35,11 +35,9 @@ public class AsignarPuertas extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaVuelos = new javax.swing.JList<>();
-        txtTiempo = new javax.swing.JTextField();
-        txtPuerta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        MostrarVuelos = new javax.swing.JButton();
         Listaaa = new java.awt.List();
+        jButton2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -52,64 +50,45 @@ public class AsignarPuertas extends javax.swing.JFrame {
 
         jButton1.setText("Asignar");
 
-        MostrarVuelos.setText("Mostrar vuelos");
-        MostrarVuelos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MostrarVuelosActionPerformed(evt);
-            }
-        });
-
         Listaaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListaaaActionPerformed(evt);
             }
         });
 
+        jButton2.setText("regresar al inicio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Listaaa, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(MostrarVuelos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Listaaa, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPuerta, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                    .addComponent(txtTiempo))
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton1)))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton1)))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPuerta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(Listaaa, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(MostrarVuelos)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addComponent(Listaaa, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jButton1)
+                .addGap(58, 58, 58)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MostrarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarVuelosActionPerformed
-        
-      
-       
-    }//GEN-LAST:event_MostrarVuelosActionPerformed
 
     private void ListaaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaaaActionPerformed
         // TODO add your handling code here:
@@ -154,12 +133,10 @@ public class AsignarPuertas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> ListaVuelos;
     private java.awt.List Listaaa;
-    private javax.swing.JButton MostrarVuelos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField txtPuerta;
-    private javax.swing.JTextField txtTiempo;
     // End of variables declaration//GEN-END:variables
 }
