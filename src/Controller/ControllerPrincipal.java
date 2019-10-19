@@ -44,6 +44,7 @@ public class ControllerPrincipal
             {
                 case "economico":
                     nuevo.getEconomico().enqueue(ingreso);
+                    
                     break;
                 case "oro":
                     nuevo.getOro().enqueue(ingreso);
