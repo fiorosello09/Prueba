@@ -40,11 +40,12 @@ public class ControllerPrincipal
         if (vuelo==null)
         {
             Vuelo nuevo = new Vuelo(destino);
+            nuevo.getArbol().addNodo(ingreso);
             switch(planLealtad.toLowerCase())
             {
                 case "economico":
                     nuevo.getEconomico().enqueue(ingreso);
-                    
+
                     break;
                 case "oro":
                     nuevo.getOro().enqueue(ingreso);
@@ -60,6 +61,7 @@ public class ControllerPrincipal
         }
         else
         {
+            vuelo.getArbol().addNodo(ingreso);
             switch(planLealtad.toLowerCase())
             {
                 case "economico":
