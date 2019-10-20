@@ -19,6 +19,7 @@ public class Ingreso
     String destino;
     String servicio;
     char asiento;
+    int prioridad;
     
     public Ingreso()
     {
@@ -35,6 +36,21 @@ public class Ingreso
         this.destino = pDestino;
         this.servicio = pServicio;
         this.asiento = asiento;
+        switch(pServicio.toLowerCase())
+        {
+            case "economico":
+                this.prioridad = 4;
+                break;
+            case "especial":
+                this.prioridad = 1;
+                break;
+            case "oro":
+                this.prioridad = 2;
+                break;
+            case "platino":
+                this.prioridad = 3;
+                break;
+        }
     }
 
     public String getNombre() {

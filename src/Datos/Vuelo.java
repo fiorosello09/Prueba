@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Datos;
+import java.util.Random;
 
 /**
  *
@@ -15,8 +16,10 @@ public class Vuelo
     private ColaPrioridad oro;
     private ColaPrioridad platino;
     private ColaPrioridad especial;
+    private Heap arbol;
     private String destino;
     private int cantidad;
+    private int vuelo;
 
     /**
      *
@@ -29,7 +32,8 @@ public class Vuelo
         this.platino = new ColaPrioridad();
         this.especial = new ColaPrioridad();
         this.destino = destino;
-        int cantidad = 0;
+        this.cantidad = 0;
+        
     }
 
 
@@ -71,6 +75,30 @@ public class Vuelo
 
     public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public Heap getArbol() {
+        return arbol;
+    }
+
+    public void setArbol(Heap arbol) {
+        this.arbol = arbol;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getVuelo() {
+        return vuelo;
+    }
+
+    public void setVuelo(int vuelo) {
+        this.vuelo = vuelo;
     }
     
     
