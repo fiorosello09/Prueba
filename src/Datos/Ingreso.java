@@ -108,6 +108,22 @@ public class Ingreso
     public void setServicio(String servicio) {
         this.servicio = servicio;
     }
+
+    public char getAsiento() {
+        return asiento;
+    }
+
+    public void setAsiento(char asiento) {
+        this.asiento = asiento;
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
+    }
     
     
     

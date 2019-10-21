@@ -11,6 +11,7 @@ import Datos.ListaSimple;
 import Datos.Vuelo;
 
 
+
 /**
  *
  * @author fioro
@@ -55,15 +56,12 @@ public class ControllerPrincipal
                     break;
                 case "especial":
                     nuevo.getEspecial().enqueue(ingreso);
-                    break; 
+                    break;
             }
-         
-        }
-        else
-        {
+
+        } else {
             vuelo.getArbol().addNodo(ingreso);
-            switch(planLealtad.toLowerCase())
-            {
+            switch (planLealtad.toLowerCase()) {
                 case "economico":
                     vuelo.getEconomico().enqueue(ingreso);
                     break;
@@ -75,8 +73,22 @@ public class ControllerPrincipal
                     break;
                 case "especial":
                     vuelo.getEspecial().enqueue(ingreso);
-                    break; 
+                    break;
             }
         }
-    
-    }}
+
+    }
+
+    public String MostrarAtendido(Ingreso persona) {
+        String texto = "";
+        String nombre = "Nombre: " + persona.getNombre();
+        String nacimiento = "Fecha de nacimiento: " + persona.getFecha();
+        String pasaporte = "Número de pasaporte: " + persona.getPasaporte();
+        String origen = "Salida desde: " + persona.getOrigen();
+        String servicio = "Tipo de servicio: " + persona.getServicio();
+        String destino = "Destino: " + persona.getDestino();
+        String asiento = "Número de asiento: " + persona.getAsiento();
+        return texto;
+    }
+
+}
