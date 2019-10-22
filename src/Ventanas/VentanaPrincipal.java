@@ -122,7 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ActionListen
 
     private void VIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VIPActionPerformed
         // TODO add your handling code here:
-        Checkout ventana = new Checkout();
+        CheckOut ventana = new CheckOut();
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_VIPActionPerformed
@@ -177,6 +177,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ActionListen
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param arg0
+     */
     @Override
     public void actionPerformed(ActionEvent arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

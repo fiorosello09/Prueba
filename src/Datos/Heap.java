@@ -11,6 +11,9 @@ package Datos;
  */
 public class Heap {
 
+    /**
+     *
+     */
     public class Nodo {
 
         /* Declaraciones de variables */
@@ -21,39 +24,79 @@ public class Heap {
         private Nodo hojaDerecha;
 
         /* Constructor */
+
+        /**
+         *
+         * @param valor
+         */
+
         public Nodo(Ingreso valor) {
             this.persona = valor;
         }
 
         /* Setters y Getters */
+
+        /**
+         *
+         * @param valor
+         */
+
         public void setValor(Ingreso valor) {
             this.persona = valor;
         }
 
+        /**
+         *
+         * @return
+         */
         public Ingreso getValor() {
             return persona;
         }
 
+        /**
+         *
+         * @return
+         */
         public Nodo getPadre() {
             return padre;
         }
 
+        /**
+         *
+         * @param padre
+         */
         public void setPadre(Nodo padre) {
             this.padre = padre;
         }
 
+        /**
+         *
+         * @return
+         */
         public Nodo getHojaIzquierda() {
             return hojaIzquierda;
         }
 
+        /**
+         *
+         * @param hojaIzquierda
+         */
         public void setHojaIzquierda(Nodo hojaIzquierda) {
             this.hojaIzquierda = hojaIzquierda;
         }
 
+        /**
+         *
+         * @return
+         */
         public Nodo getHojaDerecha() {
             return hojaDerecha;
         }
 
+        /**
+         *
+         * @param hojaDerecha
+         */
         public void setHojaDerecha(Nodo hojaDerecha) {
             this.hojaDerecha = hojaDerecha;
         }
@@ -61,20 +104,53 @@ public class Heap {
     /* Atributos */
     private Nodo raiz;
 
+    /**
+     *
+     */
+    public int cantidad;
+
+    /**
+     *
+     */
+    public Heap()
+    {
+        cantidad = 0;
+        this.raiz = null;
+    }
     /* Contructories */
+
+    /**
+     *
+     * @param valor
+     */
+
     public Heap(Ingreso valor) {
         this.raiz = new Nodo(valor);
     }
 
+    /**
+     *
+     * @param raiz
+     */
     public Heap(Nodo raiz) {
         this.raiz = raiz;
     }
 
     /* Setters y Getters */
+
+    /**
+     *
+     * @return
+     */
+
     public Nodo getRaiz() {
         return raiz;
     }
 
+    /**
+     *
+     * @param raiz
+     */
     public void setRaiz(Nodo raiz) {
         this.raiz = raiz;
     }
@@ -119,12 +195,26 @@ public class Heap {
                 }
             }
         }
+        
     }
 
-    public void addNodo( Ingreso nodo ) {
+    /**
+     *
+     * @param nodo
+     */
+    public void addNodo( Ingreso nodo ) 
+    {
+        cantidad++;
         this.addNodo( new Nodo(nodo) , this.raiz );
+        System.out.println(cantidad);
+        
     }
     
+    /**
+     *
+     * @param value
+     * @return
+     */
     public boolean delete(int value){
         Nodo current = this.raiz;
         Nodo parent = this.raiz;
@@ -149,7 +239,7 @@ public class Heap {
         
         // Leaf node deletion case
         if(current.hojaIzquierda == null && current.hojaDerecha == null){
-            System.out.println("Leaf node deletion case");
+            //System.out.println("Leaf node deletion case");
             // if root node is to be deleted
             if(current == this.raiz){
                 raiz = null;
@@ -166,7 +256,7 @@ public class Heap {
         // Node to be deleted has one child case
         // Node to be deleted has right child
         else if(current.hojaIzquierda == null){
-            System.out.println("One right child deletion case");
+            //System.out.println("One right child deletion case");
             // if root node is to be deleted
             if(current == raiz){
                 raiz = current.hojaDerecha;
@@ -182,7 +272,7 @@ public class Heap {
         }
         // Node to be deleted has left child
         else if(current.hojaDerecha == null){
-            System.out.println("One left child deletion case");
+          //  System.out.println("One left child deletion case");
             if(current == raiz){
                 raiz = current.hojaIzquierda;
             }
@@ -197,7 +287,7 @@ public class Heap {
         }
         // Node to be deleted has two children case
         else{
-            System.out.println("Two children deletion case");
+          //  System.out.println("Two children deletion case");
             // find in-order successor of the node to be deleted
             Nodo successor = findSuccessor(current);
             if(current == raiz){
@@ -213,6 +303,8 @@ public class Heap {
             }
             successor.hojaIzquierda = current.hojaIzquierda;
         }
+        cantidad--;
+        System.out.println(cantidad);
         return true;
     }
     private Nodo findSuccessor(Nodo node){
@@ -235,6 +327,45 @@ public class Heap {
             successor.hojaDerecha = node.hojaDerecha;
         }
         return successor;
+    }
+
+    /**
+     *
+     * @param d
+     * @return
+     */
+    public Nodo BuscarNodo(int d) {
+        Nodo aux = raiz;
+        while (aux.getValor().prioridad != d) {
+            if (d < aux.getValor().prioridad ) {
+                aux = aux.hojaIzquierda;
+            } else {
+                aux = aux.hojaDerecha;
+            }
+            if (aux == null) {
+                return null;
+            }
+        }
+        return aux;
+    }
+
+    /**
+     *
+     * @param info
+     * @return
+     */
+    public boolean existe(int info) {
+        Nodo reco = raiz;
+        while (reco != null) {
+            if (info == reco.getValor().prioridad) {
+                return true;
+            } else if (info > reco.getValor().prioridad) {
+                reco = reco.hojaDerecha;
+            } else {
+                reco = reco.hojaIzquierda;
+            }
+        }
+        return false;
     }
 
 

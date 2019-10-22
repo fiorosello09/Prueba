@@ -8,6 +8,7 @@ package Ventanas;
 import Datos.Node;
 import Datos.Vuelo;
 import Controller.ControllerPrincipal;
+import static Controller.ControllerPrincipal.Vuelos;
 
 /**
  *
@@ -38,6 +39,7 @@ public class AsignarPuertas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Listaaa = new java.awt.List();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -49,6 +51,11 @@ public class AsignarPuertas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Asignar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         Listaaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +64,18 @@ public class AsignarPuertas extends javax.swing.JFrame {
         });
 
         jButton2.setText("regresar al inicio");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Ver vuelos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +89,9 @@ public class AsignarPuertas extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton1))))
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
@@ -82,7 +103,9 @@ public class AsignarPuertas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jButton1)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addGap(29, 29, 29)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -93,6 +116,39 @@ public class AsignarPuertas extends javax.swing.JFrame {
     private void ListaaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaaaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ListaaaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        VentanaPrincipal ventana = new VentanaPrincipal();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Listaaa.clear();
+        Node<Vuelo> temp = Vuelos.head;
+        while(temp!=null)
+        {
+            String vuelo = temp.getElement().getDestino();
+            Listaaa.add(vuelo);
+            temp = temp.getNext();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String obj = Listaaa.getSelectedItem();
+        Vuelo vuelo = Vuelos.consultar(obj);
+        ControllerPrincipal control = new ControllerPrincipal();
+        if(control.asignar>control.puertas)
+        {
+            System.out.println("no hay mas puertas disponibles");
+        }
+        else
+        {
+            vuelo.setPuerta(control.asignar++);
+            control.setAsignar(control.asignar++);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +177,12 @@ public class AsignarPuertas extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -135,6 +197,7 @@ public class AsignarPuertas extends javax.swing.JFrame {
     private java.awt.List Listaaa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
