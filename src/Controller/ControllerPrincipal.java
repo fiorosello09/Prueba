@@ -285,6 +285,7 @@ public class ControllerPrincipal {
 
                 }
                 timer.schedule(task, 5000, 2000);
+                Vuelos.eliminar(vuelo);
             }
            
 
