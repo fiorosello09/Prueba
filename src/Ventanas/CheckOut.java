@@ -126,12 +126,19 @@ public class CheckOut extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         list1.clear();
+        if(Vuelos.cantidad==0)
+        {
+            list1.add("No hay vuelos disponibles");
+        }
+        else
+        {
         Node<Vuelo> temp = Vuelos.head;
         while(temp!=null)
         {
             String vuelo = temp.getElement().getDestino();
             list1.add(vuelo);
             temp = temp.getNext();
+        }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

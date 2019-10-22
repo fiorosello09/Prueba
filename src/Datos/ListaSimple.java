@@ -22,7 +22,7 @@ public class ListaSimple<L>
     public Node<L> head;
     private Node<L> current;
     private Node<L> tail;
-    private int cantidad;
+    public int cantidad;
 
     
     
