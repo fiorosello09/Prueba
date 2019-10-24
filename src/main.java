@@ -61,6 +61,12 @@ public class main {
        */
         VentanaPrincipal ola = new VentanaPrincipal();
         ola.setVisible(true);
+        /*
+        String puerta = "Puerta 1";
+        String puera1 = puerta.trim();
+         System.out.println("Con trim :"+puera1);
+        String indice = String.valueOf(puera1.charAt(7));
+        System.out.println(indice);*/
         
         
     }

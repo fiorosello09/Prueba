@@ -18,7 +18,7 @@ public class Ingreso
     String origen;
     String destino;
     String servicio;
-    char asiento;
+    String asiento;
     int prioridad;
     
     /**
@@ -40,7 +40,7 @@ public class Ingreso
      * @param pServicio
      * @param asiento
      */
-    public Ingreso(String pNombre, String pFecha,String pPasaporte,String pNacionalidad,String pOrigen,String pDestino,String pServicio,char asiento)
+    public Ingreso(String pNombre, String pFecha,String pPasaporte,String pNacionalidad,String pOrigen,String pDestino,String pServicio,String asiento)
     {
         this.nombre = pNombre;
         this.fecha = pFecha;
@@ -183,7 +183,7 @@ public class Ingreso
      *
      * @return
      */
-    public char getAsiento() {
+    public String getAsiento() {
         return asiento;
     }
 
@@ -191,7 +191,7 @@ public class Ingreso
      *
      * @param asiento
      */
-    public void setAsiento(char asiento) {
+    public void setAsiento(String asiento) {
         this.asiento = asiento;
     }
 

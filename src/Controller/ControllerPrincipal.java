@@ -41,12 +41,12 @@ public class ControllerPrincipal {
     /**
      *
      */
-    public int puertas = 0;
-    
+    public static int puertas = 0;
+
     /**
      *
      */
-    public static char[] lugar = {'V', 'C', 'P'};
+    public static String[] lugar = {"V", "C", "P"};
 
     /**
      *
@@ -62,14 +62,14 @@ public class ControllerPrincipal {
         char asiento = planLealtad.toLowerCase().charAt(0);
         Random numero = new Random();
         int numero1 = numero.nextInt(3);
-        char asiento2 = lugar[numero1];
+        String asiento2 = lugar[numero1];
 
         Vuelo vuelo = (Vuelo) Vuelos.consultar(destino);
 
         if (vuelo == null) {
 
             Vuelo nuevo = new Vuelo(destino);
-            char Asiento = (char) (asiento + asiento2 + nuevo.getCantidad());
+            String Asiento = asiento + asiento2 + nuevo.getCantidad();
             nuevo.setCantidad(nuevo.getCantidad() + 1);
             Ingreso ingreso = new Ingreso(nombre, fecha, pasaporte, nacionalidad, origen, destino, planLealtad, Asiento);
             Heap arbol = nuevo.getArbol();
@@ -89,11 +89,11 @@ public class ControllerPrincipal {
                     nuevo.getEspecial().enqueue(ingreso);
                     break;
             }
-            JOptionPane.showMessageDialog(null, "Ingresando... " + "\n"+ nombre + " al asiento " + Asiento+" con destino a "+destino);
+            JOptionPane.showMessageDialog(null, "Ingresando... " + "\n" + nombre + " al asiento " + Asiento + " con destino a " + destino);
             Vuelos.insertar(nuevo);
 
         } else {
-            char Asiento = (char) (asiento + asiento2 + vuelo.getCantidad());
+            String Asiento = (asiento + asiento2 + vuelo.getCantidad());
             Ingreso ingreso = new Ingreso(nombre, fecha, pasaporte, nacionalidad, origen, destino, planLealtad, Asiento);
             vuelo.setCantidad(vuelo.getCantidad() + 1);
             vuelo.getArbol().addNodo(ingreso);
@@ -111,10 +111,8 @@ public class ControllerPrincipal {
                     vuelo.getEspecial().enqueue(ingreso);
                     break;
             }
-            JOptionPane.showMessageDialog(null, "Ingresando... " + "\n"+ nombre + " al asiento " + Asiento+" con destino a "+destino);
+            JOptionPane.showMessageDialog(null, "Ingresando... " + "\n" + nombre + " al asiento " + Asiento + " con destino a " + destino);
         }
-        
-        
 
     }
 
@@ -141,7 +139,16 @@ public class ControllerPrincipal {
 
                         Ingreso temp = (Ingreso) personas.dequeue();
                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getServicio() + "\n" + temp.getNombre());
-
+                        String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                        if (n != null) {
+                            String comentario = n;
+                            if (comentario != "") {
+                                System.out.println(comentario);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                            }
+                        } else {
+                        }
                     }
                 }
                 if (personas1.size != 0) {
@@ -150,55 +157,79 @@ public class ControllerPrincipal {
 
                         Ingreso temp = (Ingreso) personas1.dequeue();
                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getServicio() + "\n" + temp.getNombre());
-
+                        String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                        if (n != null) {
+                            String comentario = n;
+                            if (comentario != "") {
+                                System.out.println(comentario);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                            }
+                        } else {
+                        }
                     }
                 }
-                if (personas2.size != 0)
-                {
+                if (personas2.size != 0) {
 
-                    while (personas2.size != 0) 
-                    {
+                    while (personas2.size != 0) {
 
                         Ingreso temp = (Ingreso) personas2.dequeue();
                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getServicio() + "\n" + temp.getNombre());
-
+                        String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                        if (n != null) {
+                            String comentario = n;
+                            if (comentario != "") {
+                                System.out.println(comentario);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                            }
+                        } else {
+                        }
                     }
 
                 }
-                if (personas3.size != 0)
-                {
+                if (personas3.size != 0) {
 
-                    while (personas3.size != 0) 
-                    {
+                    while (personas3.size != 0) {
 
                         Ingreso temp = (Ingreso) personas3.dequeue();
-                        JOptionPane.showMessageDialog(null,"Atendiendo servicio "+temp.getServicio()+"\n"+temp.getNombre());
-
+                        JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getServicio() + "\n" + temp.getNombre());
+                        String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                        if (n != null) {
+                            String comentario = n;
+                            if (comentario != "") {
+                                System.out.println(comentario);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                            }
+                        } else {
+                        }
                     }
                 }
-            }};
-                {
+            }
+        };
+        {
 
-                }
-                timer.schedule(task, 5000, 2000);
-                Vuelos.eliminar(vuelo);
         }
+        timer.schedule(task, 5000, 2000);
+        Vuelos.eliminar(vuelo);
+    }
 
     /**
      *
      * @return
      */
     public String getTipo() {
-                return tipo;
-            }
+        return tipo;
+    }
 
     /**
      *
      * @param tipo
      */
     public void setTipo(String tipo) {
-                this.tipo = tipo;
-            }
+        this.tipo = tipo;
+    }
 
     /**
      *
@@ -236,58 +267,116 @@ public class ControllerPrincipal {
      *
      * @param vuelo
      */
-    public void MostrarAtendidoArbol(Vuelo vuelo)
-            {
-               
-                Timer timer = new Timer();
+    public void MostrarAtendidoArbol(Vuelo vuelo) {
 
-                TimerTask task = new TimerTask() 
-                {
-                    Heap arbol = vuelo.getArbol();
-                   
-                   @Override
+        Timer timer = new Timer();
 
-                 public void run() 
-                 {
-                     Nodo temp = arbol.BuscarNodo(1);
-                     Nodo temp1 = arbol.BuscarNodo(2);
-                     Nodo temp2 = arbol.BuscarNodo(3);
-                     Nodo temp3 = arbol.BuscarNodo(4);
-                     while(temp!=null)
-                     {
-                         
-                         arbol.delete(1);
-                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getValor().getServicio() + "\n" + temp.getValor().getNombre());
-                         temp = arbol.BuscarNodo(1);
-                     }
-                     while(temp1!=null)
-                     {
-                         arbol.delete(2);
-                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp1.getValor().getServicio() + "\n" + temp1.getValor().getNombre());
-                         temp1 = arbol.BuscarNodo(2);
-                     }
-                     while(temp2!=null)
-                     {
-                         arbol.delete(3);
-                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp2.getValor().getServicio() + "\n" + temp2.getValor().getNombre());
-                         temp2 = arbol.BuscarNodo(3);
-                     }
-                     while(temp3!=null)
-                     {
-                         arbol.delete(4);
-                         JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp3.getValor().getServicio() + "\n" + temp3.getValor().getNombre());
-                         temp3 = arbol.BuscarNodo(4);
-                     }
-                     
-                 } 
-                };
-                {
+        TimerTask task = new TimerTask() {
+            Heap arbol = vuelo.getArbol();
 
+            @Override
+
+            public void run() {
+                Nodo temp = arbol.BuscarNodo(1);
+                Nodo temp1 = arbol.BuscarNodo(2);
+                Nodo temp2 = arbol.BuscarNodo(3);
+                Nodo temp3 = arbol.BuscarNodo(4);
+                while (temp != null) {
+
+                    arbol.delete(1);
+                    JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp.getValor().getServicio() + "\n" + temp.getValor().getNombre());
+                    String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                    JOptionPane.showMessageDialog(null, "Hello " + n);
+                    temp = arbol.BuscarNodo(1);
                 }
-                timer.schedule(task, 5000, 2000);
-                Vuelos.eliminar(vuelo);
-            }
-           
+                while (temp1 != null) {
+                    arbol.delete(2);
+                    JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp1.getValor().getServicio() + "\n" + temp1.getValor().getNombre());
+                    String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                    if (n != null) {
+                        String comentario = n;
+                        if (comentario != "") {
+                            System.out.println(comentario);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                        }
+                    } else {
+                    }
+                    temp1 = arbol.BuscarNodo(2);
+                }
+                while (temp2 != null) {
+                    arbol.delete(3);
+                    JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp2.getValor().getServicio() + "\n" + temp2.getValor().getNombre());
+                    String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                    if (n != null) {
+                        String comentario = n;
+                        if (comentario != "") {
+                            System.out.println(comentario);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                        }
+                    } else {
+                    }
+                    temp2 = arbol.BuscarNodo(3);
+                }
+                while (temp3 != null) {
+                    arbol.delete(4);
+                    JOptionPane.showMessageDialog(null, "Atendiendo servicio " + temp3.getValor().getServicio() + "\n" + temp3.getValor().getNombre());
+                    String n = JOptionPane.showInputDialog(null, "¿Cual es su nombre?", "");
+                    if (n != null) {
+                        String comentario = n;
+                        if (comentario != "") {
+                            System.out.println(comentario);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "favor ingresar un mensaje");
+                        }
+                    } else {
+                    }
+                    temp3 = arbol.BuscarNodo(4);
+                }
 
-          
+            }
+        };
+        {
+
         }
+        timer.schedule(task, 5000, 2000);
+        Vuelos.eliminar(vuelo);
+    }
+    
+    public void MostrarEstadoPuerta(Vuelo vuelo)
+    {
+        String estructura = tipo;
+        int cantidadEconomico = vuelo.getEconomico().size;
+        int cantidadEspecial = vuelo.getEspecial().size;
+        int cantidadOro = vuelo.getOro().size;
+        int cantidadPlatino = vuelo.getPlatino().size();
+        int cantidadAsientos = vuelo.getCantidad();
+        String persona = "";
+        if(cantidadEspecial!=0)
+        {
+            Node<Ingreso> cabeza = vuelo.getEspecial().front.getNext();
+            persona = cabeza.getElement().getNombre();
+            
+        }
+        if(cantidadOro!=0)
+        {
+            Node<Ingreso> cabeza = vuelo.getOro().front.getNext();
+            persona = cabeza.getElement().getNombre();
+        }
+        if(cantidadPlatino!=0)
+        {
+            Node<Ingreso> cabeza = vuelo.getPlatino().front.getNext();
+            persona = cabeza.getElement().getNombre();
+        }
+        if(cantidadEconomico!=0)
+        {
+            Node<Ingreso> cabeza = vuelo.getEconomico().front.getNext();
+            persona = cabeza.getElement().getNombre();
+        }
+        JOptionPane.showMessageDialog(null, "Informacion de Puerta "+vuelo.getPuerta()+"\n"+"Estructura utilizada: "+estructura+"\n"+"Cantidad de personas especiales: "+cantidadEspecial+"\n"+"Cantidad de personas oro: "+cantidadOro+"\n"+"Cantidad de personas platino: "+cantidadPlatino+"\n"+"Cantidad de personas economico: "+cantidadEconomico
+        +"\n"+"Siguiente persona por atender: "+persona+"\n"+"Cantidad de asientos otorgados: "+cantidadAsientos);
+ 
+    }
+
+}

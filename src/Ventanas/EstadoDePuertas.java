@@ -5,6 +5,11 @@
  */
 package Ventanas;
 
+import Controller.ControllerPrincipal;
+import static Controller.ControllerPrincipal.Vuelos;
+import Datos.Node;
+import Datos.Vuelo;
+
 /**
  *
  * @author xavier
@@ -29,6 +34,8 @@ public class EstadoDePuertas extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         list1 = new java.awt.List();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,24 +46,48 @@ public class EstadoDePuertas extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Cargas puertas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Mostrar Estado de Puerta");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jButton3)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addComponent(jButton2)
+                .addGap(42, 42, 42)
                 .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -69,6 +100,39 @@ public class EstadoDePuertas extends javax.swing.JFrame {
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int puerta = ControllerPrincipal.puertas;
+        int inicio = 1;
+        while(inicio<=puerta)
+        {
+            list1.add("Puerta "+inicio);
+            inicio++;
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String puerta = list1.getSelectedItem();
+        String indice = String.valueOf(puerta.charAt(7));
+        int numero = Integer.parseInt(indice);
+        ControllerPrincipal control = new ControllerPrincipal();
+        Node<Vuelo> cabeza = Vuelos.head;
+        System.out.println(cabeza.getElement().getDestino());
+        while(cabeza!=null)
+        {
+            System.out.println("entroo");
+            System.out.println(cabeza.getElement().getPuerta());
+            if(cabeza.getElement().getPuerta()==numero)
+            {
+                 System.out.println("entroo2.0");
+                control.MostrarEstadoPuerta(cabeza.getElement());
+                break;
+            }
+            cabeza =  cabeza.getNext();
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +174,8 @@ public class EstadoDePuertas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private java.awt.List list1;
     // End of variables declaration//GEN-END:variables
 }

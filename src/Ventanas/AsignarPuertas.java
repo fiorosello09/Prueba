@@ -144,8 +144,10 @@ public class AsignarPuertas extends javax.swing.JFrame {
         }
         else
         {
-            vuelo.setPuerta(control.asignar++);
-            control.setAsignar(control.asignar++);
+            
+            vuelo.setPuerta(control.asignar+1);
+                    System.out.println(vuelo.getPuerta());
+            control.setAsignar(control.asignar+1);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
