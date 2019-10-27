@@ -48,6 +48,21 @@ public class ControllerPrincipal {
      */
     public static String[] lugar = {"V", "C", "P"};
 
+    public static double total = 0;
+    public static double cont = 0;
+    public static int PersonasColaSalida = 0;
+    public static int PersonasAtendidasPuertas = 0;
+
+    public static double totalPromedio = 0;
+
+    public static int AsientosPlanLealtadE = 0;
+    public static int AsientosPlanLealtadEs = 0;
+    public static int AsientosPlanLealtadVip = 0;
+
+    /*
+public static int PersonasPuertas = 0;
+public static int AsientoPersona = 0;
+public static int PersonasxPuertas = 0;
     /**
      *
      * @param nombre
@@ -343,9 +358,8 @@ public class ControllerPrincipal {
         timer.schedule(task, 5000, 2000);
         Vuelos.eliminar(vuelo);
     }
-    
-    public void MostrarEstadoPuerta(Vuelo vuelo)
-    {
+
+    public void MostrarEstadoPuerta(Vuelo vuelo) {
         String estructura = tipo;
         int cantidadEconomico = vuelo.getEconomico().size;
         int cantidadEspecial = vuelo.getEspecial().size;
@@ -353,30 +367,26 @@ public class ControllerPrincipal {
         int cantidadPlatino = vuelo.getPlatino().size();
         int cantidadAsientos = vuelo.getCantidad();
         String persona = "";
-        if(cantidadEspecial!=0)
-        {
+        if (cantidadEspecial != 0) {
             Node<Ingreso> cabeza = vuelo.getEspecial().front.getNext();
             persona = cabeza.getElement().getNombre();
-            
+
         }
-        if(cantidadOro!=0)
-        {
+        if (cantidadOro != 0) {
             Node<Ingreso> cabeza = vuelo.getOro().front.getNext();
             persona = cabeza.getElement().getNombre();
         }
-        if(cantidadPlatino!=0)
-        {
+        if (cantidadPlatino != 0) {
             Node<Ingreso> cabeza = vuelo.getPlatino().front.getNext();
             persona = cabeza.getElement().getNombre();
         }
-        if(cantidadEconomico!=0)
-        {
+        if (cantidadEconomico != 0) {
             Node<Ingreso> cabeza = vuelo.getEconomico().front.getNext();
             persona = cabeza.getElement().getNombre();
         }
-        JOptionPane.showMessageDialog(null, "Informacion de Puerta "+vuelo.getPuerta()+"\n"+"Estructura utilizada: "+estructura+"\n"+"Cantidad de personas especiales: "+cantidadEspecial+"\n"+"Cantidad de personas oro: "+cantidadOro+"\n"+"Cantidad de personas platino: "+cantidadPlatino+"\n"+"Cantidad de personas economico: "+cantidadEconomico
-        +"\n"+"Siguiente persona por atender: "+persona+"\n"+"Cantidad de asientos otorgados: "+cantidadAsientos);
- 
+        JOptionPane.showMessageDialog(null, "Informacion de Puerta " + vuelo.getPuerta() + "\n" + "Estructura utilizada: " + estructura + "\n" + "Cantidad de personas especiales: " + cantidadEspecial + "\n" + "Cantidad de personas oro: " + cantidadOro + "\n" + "Cantidad de personas platino: " + cantidadPlatino + "\n" + "Cantidad de personas economico: " + cantidadEconomico
+                + "\n" + "Siguiente persona por atender: " + persona + "\n" + "Cantidad de asientos otorgados: " + cantidadAsientos);
+
     }
 
 }
