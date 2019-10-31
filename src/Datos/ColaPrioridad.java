@@ -13,9 +13,9 @@ public class ColaPrioridad<T>
 {
    
 	
-	private Node<T> front;
+	public Node<T> front;
 	private Node<T> rear;
-	private int size;
+	public int size;
 	
 	public ColaPrioridad(){
 		this.front = new Node<>();

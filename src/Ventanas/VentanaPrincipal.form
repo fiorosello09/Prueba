@@ -23,48 +23,45 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Especial" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Ingreso" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="Configuracion" pref="162" max="32767" attributes="0"/>
+                          <Component id="Ingreso" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="VIP" max="32767" attributes="0"/>
+                          <Component id="Salida" pref="161" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="89" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Salida" min="-2" max="-2" attributes="0"/>
-                  <Component id="VIP" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="Configuracion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="Configuracion" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="VIP" pref="138" max="32767" attributes="0"/>
+                  <Component id="Ingreso" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Ingreso" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="VIP" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="Salida" pref="167" max="32767" attributes="0"/>
+                  <Component id="Configuracion" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Especial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Salida" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,26 +69,27 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="Ingreso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registro de ingreso"/>
+        <Property name="text" type="java.lang.String" value="Check-in"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IngresoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Especial">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Especial"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="VIP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="VIP"/>
+        <Property name="text" type="java.lang.String" value="Check-out"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VIPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Salida">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salida"/>
+        <Property name="text" type="java.lang.String" value="Aministracion"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalidaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

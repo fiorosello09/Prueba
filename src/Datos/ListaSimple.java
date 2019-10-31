@@ -5,15 +5,24 @@
  */
 package Datos;
 
+/**
+ *
+ * @author fioro
+ * @param <L>
+ */
 public class ListaSimple<L>
 {
     
 
     // atributos de ListaFarmacia
-    private Node<L> head;
+
+    /**
+     *
+     */
+    public Node<L> head;
     private Node<L> current;
     private Node<L> tail;
-    private int cantidad;
+    public int cantidad;
 
     
     
@@ -80,12 +89,16 @@ public class ListaSimple<L>
      * @return
      */
         
-    public L consultar(L nombreFarmacia)
+    public Vuelo consultar(String nombreFarmacia)
     {
-        Node<L> nodoTemp = this.head;
+        if (cantidad==0)
+        {
+            return null;
+        }
+        Node<Vuelo> nodoTemp = (Node<Vuelo>) this.head;
         while(nodoTemp!=null)
         {
-            L nombre  = nodoTemp.getElement();
+            String nombre  = nodoTemp.getElement().getDestino();
             //System.out.println("temporaaaal"+nombre);
             //System.out.println("Elemento por buscar" +nombreFarmacia);
             if(nombre.equals(nombreFarmacia))
@@ -96,7 +109,7 @@ public class ListaSimple<L>
             }
             nodoTemp = nodoTemp.getNext();
         }
-        System.out.println("No se encontro"); 
+        //System.out.println("No se encontro"); 
         return null;
     }
     
@@ -192,13 +205,14 @@ public class ListaSimple<L>
     {
         String lista = "";
 
-        Node<L> currentNodo = this.head;
+        Node<Vuelo> currentNodo = (Node<Vuelo>) this.head;
 
         while (currentNodo!=null)
         {
+            String node = currentNodo.getElement().getDestino();
             lista +="(";
             
-            lista += currentNodo;
+            lista += node;
             lista+= "), ";
             currentNodo = currentNodo.getNext();
         }
