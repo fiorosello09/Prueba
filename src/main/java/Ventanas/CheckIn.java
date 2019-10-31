@@ -7,6 +7,7 @@ package Ventanas;
 
 import Controller.ControllerPrincipal;
 import static Controller.ControllerPrincipal.Vuelos;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -199,10 +200,20 @@ public class CheckIn extends javax.swing.JFrame {
         String pDestino = destino.getText();
         String pservicio = lealtad.getText();
         ControllerPrincipal control =  new ControllerPrincipal();
+        if(pNombre.equals("")&&pnacimiento.equals("")&&pPasaporte.equals("")&&pNacionalidad.equals("")&&pOrigen.equals("")&&pDestino.equals("")&&pservicio.equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Favor ingresar datos en todos los campos");
+            CheckIn nuevaVentana = new CheckIn();
+        nuevaVentana.setVisible(true);
+        dispose();
+        }
+        else
+        {
         control.CheckIn(pNombre, pnacimiento, pPasaporte, pNacionalidad, pOrigen, pDestino, pservicio);
         CheckIn nuevaVentana = new CheckIn();
         nuevaVentana.setVisible(true);
         dispose();
+                }
       
         /*VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setVisible(true);
